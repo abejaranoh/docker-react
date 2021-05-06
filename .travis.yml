@@ -4,3 +4,7 @@ services:
 
 before_install:
   - docker build -t alexbh/simpleweb -f Dockerfile .
+
+script:
+  - docker run alexbh/simpleweb ls
+
