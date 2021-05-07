@@ -4,8 +4,6 @@
 #image
 FROM node:14.16.1-alpine3.10
 
-EXPOSE 80
-
 #sets work directory
 WORKDIR /usr/app
 
@@ -19,4 +17,8 @@ RUN npm install
 COPY ./ ./
 
 #start command
-CMD ["npm", "start"]
+CMD ["npm", "run", "build"]
+
+FROM nginx
+EXPOSE 80
+COPY --from=0 /usr/app/build /usr/share/nginx/html
