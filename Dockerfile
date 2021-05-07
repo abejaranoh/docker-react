@@ -5,19 +5,19 @@
 FROM node:14.16.1-alpine3.10
 
 #sets work directory
-WORKDIR /app
+WORKDIR '/app'
 
 #copy files from working directory to working dorectoy inside the container
-COPY ./package.json ./
+COPY package*.json ./
 
 #install dependencies
 RUN npm install
 
 #copy the rest
-COPY ./ ./
+COPY . .
 
 #start command
-CMD npm run start
+CMD npm run build
 
 FROM nginx
 EXPOSE 80
