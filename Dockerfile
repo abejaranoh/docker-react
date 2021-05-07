@@ -4,6 +4,8 @@
 #image
 FROM node:14.16.1-alpine3.10
 
+EXPOSE 80
+
 #sets work directory
 WORKDIR /usr/app
 
