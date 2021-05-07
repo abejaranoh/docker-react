@@ -17,7 +17,7 @@ RUN npm install
 COPY ./ ./
 
 #start command
-CMD npm run build
+CMD npm run start
 
 FROM nginx
 EXPOSE 80
