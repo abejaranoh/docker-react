@@ -5,7 +5,7 @@
 FROM node:14.16.1-alpine3.10
 
 #sets work directory
-WORKDIR /usr/app
+WORKDIR /app
 
 #copy files from working directory to working dorectoy inside the container
 COPY ./package.json ./
@@ -17,8 +17,8 @@ RUN npm install
 COPY ./ ./
 
 #start command
-CMD ["npm", "run", "build"]
+CMD npm run build
 
 FROM nginx
 EXPOSE 80
-COPY --from=0 /usr/app/build /usr/share/nginx/html
+COPY --from=0 /app/build /usr/share/nginx/html
